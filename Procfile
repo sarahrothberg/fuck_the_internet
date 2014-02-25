@@ -1,1 +1,1 @@
-web: python pipes_code_v05.py
+web: python app.py
