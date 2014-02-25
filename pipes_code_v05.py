@@ -19,11 +19,11 @@ messages = client.messages.list(
 	 to= "+17472334999"
 )
 
-# @app.route("/", methods=['GET', 'POST'])
-# def displayQuestion():
-#     return messages[0].body
-
 @app.route("/", methods=['GET', 'POST'])
+def displayQuestion():
+    return messages[0].body
+
+@app.route("/response", methods=['GET', 'POST'])
 def fromTheInternet():
     resp = twilio.twiml.Response()
     resp.message("THANKS FOR UR QUESTION. <3, THE INTERNET")
