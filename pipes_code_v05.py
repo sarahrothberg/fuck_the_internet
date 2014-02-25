@@ -23,13 +23,13 @@ messages = client.messages.list(
 def displayQuestion():
     return messages[0].body
 
-@app.route("/response", methods=['GET', 'POST'])
-def fromTheInternet():
-    resp = twilio.twiml.Response()
-    resp.message("THANKS FOR UR QUESTION. <3, THE INTERNET")
-    return str(resp)
+# @app.route("/response", methods=['GET', 'POST'])
+# def fromTheInternet():
+#     resp = twilio.twiml.Response()
+#     resp.message("THANKS FOR UR QUESTION. <3, THE INTERNET")
+#     return str(resp)
 
 if __name__ == "__main__":
 	port = int(os.environ.get('PORT', 5000))
 	app.run(host = '0.0.0.0', port=port)
-	app.run(debug=True)
+	# app.run(debug=True)
