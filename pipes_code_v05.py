@@ -19,28 +19,24 @@ messages = client.messages.list(
 	 to= "+17472334999"
 )
 
-# @app.route("/", methods=['GET', 'POST'])
-# def displayQuestion():
-#     return messages[0].body
+@app.route("/", methods=['GET', 'POST'])
+def displayQuestion():
+    return messages[0].body
 
-# @app.route('/display', methods=['GET', 'POST'])
-# def display():
-# 	capability = TwilioCapability(account_sid, auth_token)
-#     application_sid = "APec07b556a00c43b2a1c94b92025d5e2f"
-#     capability.allow_client_outgoing(application_sid)
-#     capability.allow_client_incoming("jenny")
-#     token = capability.generate()
- 
-#     return render_template('client.html', token=token)
+@app.route('/display', methods=['GET', 'POST'])
+def display():
+	capability = TwilioCapability(account_sid, auth_token)
+    application_sid = "APec07b556a00c43b2a1c94b92025d5e2f"
+    capability.allow_client_outgoing(application_sid)
+    capability.allow_client_incoming("jenny")
+    token = capability.generate()
+    return render_template('display.html', token=token)
 
- 
-    # return render_template('display.html', token=token)
-
-@app.route("/fromTheInternet", methods=['GET', 'POST'])
-def fromTheInternet():
-    resp = twilio.twiml.Response()
-    resp.message("THANKS FOR UR QUESTION. <3, THE INTERNET")
-    return str(resp)
+# @app.route("/fromTheInternet", methods=['GET', 'POST'])
+# def fromTheInternet():
+#     resp = twilio.twiml.Response()
+#     resp.message("THANKS FOR UR QUESTION. <3, THE INTERNET")
+#     return str(resp)
 
 if __name__ == "__main__":
 	port = int(os.environ.get('PORT', 5000))
