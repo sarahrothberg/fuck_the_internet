@@ -5,7 +5,6 @@ from twilio.util import TwilioCapability
 
 import twilio.twiml
 import os
-import serial
 
 
 app = Flask(__name__)
