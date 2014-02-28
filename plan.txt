@@ -1,0 +1,16 @@
+plan
+
+1. add jinja
+2. use jinja to pass in template data to html file
+3. make html/css
+4. make javascript to setinterval to check app.py route with incoming twilio msgs
+5. use jquery to manipulate the dom 
+
+
+
+root python page returns index.html. 
+index.html has javascript embedded in it. 
+javascript sets interval to request a route from python that contains the message[0].body
+when javascript gets a response from python it will put that response in an element
+
+javascript will 

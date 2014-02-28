@@ -1,6 +1,8 @@
 # Download the Python helper library from twilio.com/docs/python/install
 from twilio.rest import TwilioRestClient
 from flask import Flask, request, redirect, session
+from flask import Flask, request, redirect, session 
+from flask import render_template
 from twilio.util import TwilioCapability
 
 import twilio.twiml
@@ -19,9 +21,29 @@ message = client.messages.list(
 	 to= "+17472334999"
 )
 
+
 @app.route("/", methods=['GET', 'POST'])
 def displayQuestion():
+	message = client.messages.list(
+		to = "+17472334999"
+		)
+	smsMessage = message[0].body
+	return render_template ('main.html', smsMessage = smsMessage)
+
+@app.route("/textRefresher", methods=['GET', 'POST'])
+def textReferesher():
+	message = client.messages.list(
+		to = "+17472334999"
+		)
 	return message[0].body
+
+# @app.route("/", methods=['GET', 'POST'])
+# def storesMessages():
+# 	# message = request.values.get('Body', None)
+# 	message = client.messages.list(
+# 		to = "+17472334999"
+# 		)
+# 	return message[0].body
 
 @app.route("/response", methods=['GET', 'POST'])
 def fromTheInternet():
@@ -33,5 +55,6 @@ def fromTheInternet():
 
 if __name__ == "__main__":
 	port = int(os.environ.get('PORT', 5000))
+	port = int(os.environ.get('PORT', 8090))
 	app.run(host = '0.0.0.0', port=port)
 	app.run(debug=True)
