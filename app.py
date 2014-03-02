@@ -47,6 +47,9 @@ def textRefresher():
 @app.route("/response", methods=['GET', 'POST'])
 def fromTheInternet():
 	"""Respond to incoming calls with a simple text message."""
+	message = client.messages.list(
+		to = "+17472334999"
+		)
 	badword = "fuck"
 	text = message[0].body
 	textWords = text.split()
