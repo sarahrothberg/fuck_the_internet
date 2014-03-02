@@ -51,6 +51,7 @@ def fromTheInternet():
 		to = "+17472334999"
 		)
 	badword = "fuck"
+	print message[0].body
 	text = message[0].body
 	textWords = text.split()
 	#if the text contains naughty words

@@ -33,7 +33,6 @@ $(function worker() {
       complete: function() {
         setTimeout(worker, 1000);
         lastText = currentText;
-        console.log(lastText)
       }
     });
   });
