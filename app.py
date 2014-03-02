@@ -66,7 +66,7 @@ def fromTheInternet():
 	"""Respond to incoming calls with a simple text message."""
 	resp = twilio.twiml.Response()
 	resp.message(response)
-	return str(resp)
+	return str(response)
 
 if __name__ == "__main__":
 	port = int(os.environ.get('PORT', 8090))
