@@ -50,7 +50,7 @@ def fromTheInternet():
 	message = client.messages.list(
 		to = "+17472334999"
 		)
-	badword = "fuck"
+	badword = "Fuck"
 	print message[0].body
 	text = message[0].body
 	textWords = text.split()
