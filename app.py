@@ -70,8 +70,7 @@ def fromTheInternet():
 	if badword in textWords:
 		msg = "OH NO A$$FACE SAFESEARCH IS ON!"
 	else:
-		msg = "THANKS FOR UR QUESTION. FROM, THE INTERNET
-		"
+		msg = "THANKS FOR UR QUESTION. FROM, THE INTERNET"
 	resp = twilio.twiml.Response()
 	resp.message(msg)
 	return str(resp)
