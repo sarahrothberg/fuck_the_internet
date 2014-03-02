@@ -19,7 +19,7 @@ client = TwilioRestClient(account_sid, auth_token)
 
 @app.route("/", methods=['GET', 'POST'])
 def mainFunction():
-	return main.html
+	return render_template('main.html')
 
 # @app.route("/", methods=['GET', 'POST'])
 # def displayQuestion():
@@ -34,7 +34,6 @@ def textRefresher():
 	message = client.messages.list(
 		to = "+17472334999"
 		)
-	smsMessage = message[0].body
 	return message[0].body
 
 # @app.route("/", methods=['GET', 'POST'])
