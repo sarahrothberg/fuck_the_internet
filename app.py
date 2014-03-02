@@ -64,8 +64,9 @@ def textRefresher():
 
 def fromTheInternet():
 	"""Respond to incoming calls with a simple text message."""
+	msg = "hihi"
 	resp = twilio.twiml.Response()
-	resp.message("hi")
+	resp.message(msg)
 	return str(resp)
 
 if __name__ == "__main__":
