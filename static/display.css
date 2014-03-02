@@ -1,7 +1,22 @@
 @import url(http://fonts.googleapis.com/css?family=VT323);
 
-#processing{
+body{
+  margin: 0px;
+}
+
+#isProcessing{
+  background: none;
+  background-size: 100%;
+  width: 100%;
+  height:100%;
+  position:absolute;
+  top:0px;
+  left:0px;
+}
+
+#isProcessing.processing{
   background: url(./images/processing.gif) no-repeat center center fixed; 
+  background-size: 100%;
 }
 
 

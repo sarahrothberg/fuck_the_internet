@@ -19,7 +19,10 @@ $(function worker() {
         currentText = textMessage;
         if (currentText != lastText){
           console.log("changed!")
-          // $('body').addClass('processing');
+          $('#isProcessing').addClass('processing');
+          setTimeout(function(){
+          $('#isProcessing').removeClass('processing');
+          }, 5000);
           // //here is where we send pyserial and do processing gifs"
 
         }
