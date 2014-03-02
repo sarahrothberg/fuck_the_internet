@@ -23,6 +23,7 @@ $(function worker() {
           setTimeout(function(){
           $('#isProcessing').removeClass('processing');
           }, 5000);
+          //number is milis gif dispalys for
           // //here is where we send pyserial and do processing gifs"
 
         }
