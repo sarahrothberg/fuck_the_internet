@@ -65,7 +65,7 @@ def textRefresher():
 def fromTheInternet():
 	"""Respond to incoming calls with a simple text message."""
 	badword = "fuck"
-	text = request.values.get('Body'):
+	text = request.values.get('Body')
 	textWords = text.split()
 	if badword in textWords:
 		msg = "OH NO A$$FACE SAFESEARCH IS ON!"
