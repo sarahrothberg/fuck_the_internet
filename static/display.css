@@ -1,5 +1,10 @@
 @import url(http://fonts.googleapis.com/css?family=VT323);
 
+#processing{
+  background: url(./images/processing.gif) no-repeat center center fixed; 
+}
+
+
 #Background0 {
   z-index: -1;
   position: absolute;
@@ -13,7 +18,7 @@
 
   #text{
   position: absolute;
-  top: 0px;
+  top: 20%;
   left: 0px;
   font-family: '256Bytes';
   font-size: 200px;
@@ -22,3 +27,4 @@
   text-transform:uppercase;
 /*  color: -webkit-linear-gradient(top, #100FFE 0%, #FF00FF 10%, #00FBFF 100%);
 */  width: 100%; }
+

@@ -7,6 +7,8 @@
 
 //timing stuff setTimeout, based on comparing previous string to current newtext
 
+var currentText;
+var lastText;
 
 $(function worker() {
     $.ajax({
@@ -14,11 +16,20 @@ $(function worker() {
       url: window.location.href+'textRefresher', 
       success: function(textMessage) {
         $('#text').html(textMessage);
+        currentText = textMessage;
+        if (currentText != lastText){
+          console.log("changed!")
+          // $('body').addClass('processing');
+          // //here is where we send pyserial and do processing gifs"
+
+        }
         //the above is how you fill a div in jquery
         //select the element with the id text and set its html to the return of the textrefresher function in python
       },
       complete: function() {
         setTimeout(worker, 1000);
+        lastText = currentText;
+        console.log(lastText)
       }
     });
   });
