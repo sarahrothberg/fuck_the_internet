@@ -1,0 +1,24 @@
+@import url(http://fonts.googleapis.com/css?family=VT323);
+
+#Background0 {
+  z-index: -1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: #d68a75;
+  background: -webkit-linear-gradient(top, #100FFE 0%, #FF00FF 10%, #00FBFF 100%);
+}
+
+  #font {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-family: '256Bytes';
+  font-size: 200px;
+  text-align: center;
+  color: black;
+  text-transform:uppercase;
+/*  color: -webkit-linear-gradient(top, #100FFE 0%, #FF00FF 10%, #00FBFF 100%);
+*/  width: 100%; }
