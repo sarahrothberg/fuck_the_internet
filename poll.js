@@ -6,3 +6,18 @@
 // $.ajax(location/textRefresher, function(newText){put into div})
 
 //timing stuff setTimeout, based on comparing previous string to current newtext
+
+
+$(function worker() {
+  $.ajax({
+  	//below means the relative location and then the specified route
+    url: window.location.href+'/textRefresher', 
+    success: function(textRefresher) {
+      //here is where we need to pass the return from python and append to div
+    },
+    complete: function() {
+      // Schedule the next request when the current one's complete
+      setTimeout(worker, 1000);
+    }
+  });
+});
