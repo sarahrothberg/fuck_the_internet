@@ -46,21 +46,21 @@ def textRefresher():
 
 @app.route("/response", methods=['GET', 'POST'])
 
-def checkForBadWords():
-	response = "THANKS FOR UR QUESTION. FROM, THE INTERNET"
-	message = client.messages.list(
-		to = "+17472334999"
-		)
-	badword = "Fuck"
-	text = message[0].body
-	textWords = text.split()
-	#if the text contains naughty words
-	if badWord in textWords:
-		response = "OH NO A$$FACE SAFESEARCH IS ON!"
-	else:
-		response = "THANKS FOR UR QUESTION. FROM, THE INTERNET"
-	fromTheInternet()
-	return 'words checked'
+# def checkForBadWords():
+# 	# response = "THANKS FOR UR QUESTION. FROM, THE INTERNET"
+# 	# message = client.messages.list(
+# 	# 	to = "+17472334999"
+# 	# 	)
+# 	# badword = "Fuck"
+# 	# text = message[0].body
+# 	# textWords = text.split()
+# 	# #if the text contains naughty words
+# 	# if badWord in textWords:
+# 	# 	response = "OH NO A$$FACE SAFESEARCH IS ON!"
+# 	# else:
+# 	# 	response = "THANKS FOR UR QUESTION. FROM, THE INTERNET"
+# 	# fromTheInternet()
+# 	# return 'words checked'
 
 def fromTheInternet():
 	"""Respond to incoming calls with a simple text message."""
