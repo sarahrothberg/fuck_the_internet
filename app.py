@@ -409,7 +409,7 @@ def fromTheInternet():
 'zoophilia']
 
 	"""Respond to incoming calls with a simple text message."""
-	badword = "fuck"
+	# badword = "fuck"
 	text = request.values.get('Body')
 	textWords = text.split()
 
