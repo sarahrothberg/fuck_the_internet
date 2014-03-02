@@ -47,8 +47,20 @@ def textRefresher():
 @app.route("/response", methods=['GET', 'POST'])
 def fromTheInternet():
 	"""Respond to incoming calls with a simple text message."""
-	resp = twilio.twiml.Response()
-	resp.message("THANKS FOR UR QUESTION. FROM, THE INTERNET")
+	badword = "fuck"
+	text = message[0].body
+	textWords = text.split()
+	#if the text contains naughty words
+	if badWord in textWords:
+		print "uh oh swear word text!"
+		resp = twilio.twiml.Response()
+		resp.message("OH NOEZ A$$FACE SAFESEARCH IS ON!")
+
+	# if the text is phrased okay do this: 
+	else:
+		resp = twilio.twiml.Response()
+		resp.message("THANKS FOR UR QUESTION. FROM, THE INTERNET")
+
 	return str(resp)
 
 if __name__ == "__main__":
