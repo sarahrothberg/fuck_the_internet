@@ -64,14 +64,14 @@ def textRefresher():
 
 def fromTheInternet():
 	"""Respond to incoming calls with a simple text message."""
-	text = request.values.get('Body')
-	textWords = text.split()
 	# with open("./badwords.txt", 'r') as badwords:
-	badwords=["fuck", "shit", "cunt", "cocksucker", "asshole"]
+	badwords = ["fuck", "shit", "cunt", "cocksucker", "asshole"]
+	text = request.values.get('Body')
+	textwords = text.split()
 	for word in badwords:
-		if word in textWords:			
+		if word in textwords:			
 			msg = "OH NO, A$$FACE SAFESEARCH IS ON!"
-		else:	
+		else:	 
 			msg = "THANKS FOR UR QUESTION. FROM, THE INTERNET"
 		resp = twilio.twiml.Response()			
 		resp.message(msg)
