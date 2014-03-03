@@ -69,6 +69,7 @@ def fromTheInternet():
 	words.append(badwords)
 	text = request.values.get('Body')
 	textWords = text.split()
+	badwords = []
 	for word in badwords:
 		if word in textWords:
 			msg = "OH NO A$$FACE SAFESEARCH IS ON!"
