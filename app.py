@@ -45,12 +45,12 @@ def fromTheInternet():
 	badwords = ['fuck', 'shit', 'cunt', 'cocksucker', 'asshole'];
 	text = request.values.get('Body')
 	textwords = text.split()
-		if badwords in textwords:			
-			msg = " UH OH, A$$FACE SAFESEARCH IS ON!"
-		else:	 
-			msg = " THANKS FOR UR QUESTION. <3, THE INTERNET"
-		resp = twilio.twiml.Response()			
-		resp.message(msg)
+	if badwords in textwords:			
+		msg = " UH OH, A$$FACE SAFESEARCH IS ON!"
+	else:	 
+		msg = " THANKS FOR UR QUESTION. <3, THE INTERNET"
+	resp = twilio.twiml.Response()			
+	resp.message(msg)
 	return str(resp)
 
 if __name__ == "__main__":
