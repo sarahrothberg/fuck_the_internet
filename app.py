@@ -64,7 +64,8 @@ def textRefresher():
 
 def fromTheInternet():
 	"""Respond to incoming calls with a simple text message."""
-	badwords = ["fuck", "shit", "asshole"]
+	text_file = open("badwords.txt")
+	badwords = text_file.read().split()
 	text = request.values.get('Body')
 	textWords = text.split()
 	for word in badwords:
