@@ -65,11 +65,11 @@ def textRefresher():
 def fromTheInternet():
 	"""Respond to incoming calls with a simple text message."""
 	# with open("./badwords.txt", 'r') as badwords:
-	badwords = ["fuck", "shit", "cunt", "cocksucker", "asshole"]
+	badwords = ['fuck', 'shit', 'cunt', 'cocksucker', 'asshole']
 	text = request.values.get('Body')
 	textwords = text.split()
 	for word in badwords:
-		print (word)
+		print word
 		if word in textwords:			
 			msg = " UH OH, A$$FACE SAFESEARCH IS ON!"
 		else:	 
