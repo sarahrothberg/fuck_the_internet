@@ -22,43 +22,27 @@ def mainFunction():
 	return render_template('main.html')
 
 #below is the working one!!!
+# @app.route("/textRefresher", methods=['GET', 'POST'])
+# def textRefresher():
+# 	message = client.messages.list(
+# 		to = "+17472334999"
+# 		)
+# 	return message[0].body
+
 @app.route("/textRefresher", methods=['GET', 'POST'])
 def textRefresher():
 	message = client.messages.list(
 		to = "+17472334999"
 		)
-	return message[0].body
-
-# @app.route("/textRefresher", methods=['GET', 'POST'])
-# def textRefresher():
-# 	message = client.messages.list(
-# 		to = "+17472334999"
-# 		)
-# 	badwords = ['fuck', 'shit', 'cunt', 'cocksucker', 'asshole'];
-# 	text = message[0].body
-# 	textwords = text.split()
-# 	for word in badwords:
-# 		if word in textwords:
-# 			post = "uh oh! someone said something shitty!"
-# 		else:
-# 			post = message[0].body
-# 	return post
-
-
-# @app.route("/textRefresher", methods=['GET', 'POST'])
-# def textRefresher():
-# 	message = client.messages.list(
-# 		to = "+17472334999"
-# 		)
-# 	badwords = ['fuck', 'shit', 'cunt', 'cocksucker', 'asshole'];
-# 	text = request.values.get('Body')
-# 	textwords = text.split()
-# 	for word in badwords:
-# 		if word in textwords:
-# 			post = message[1].body
-# 		else:	 
-# 			post = message[0].body
-# 	return post
+	badwords = ['fuck', 'shit', 'cunt', 'cocksucker', 'asshole'];
+	text = message[0].body
+	textwords = text.split()
+	for word in badwords:
+		if word in textwords:
+			post = "uh oh! someone said something shitty!"
+		else:
+			post = message[0].body
+	return post
 
 @app.route("/response", methods=['GET', 'POST'])
 def fromTheInternet():
