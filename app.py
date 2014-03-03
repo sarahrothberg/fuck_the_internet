@@ -64,9 +64,9 @@ def textRefresher():
 
 def fromTheInternet():
 	"""Respond to incoming calls with a simple text message."""
-	badwords = []
+	# badwords = []
 
-	with open("badwords.txt", 'r') as badwords
+	with open("badwords.txt", 'r') as badwords:
 	# words = text_file.read().splitlines()
 	# words.append(badwords)
 
