@@ -18,7 +18,7 @@ auth_token  = "fe3eecfae2e9747c93c67dce12458853"
 client = TwilioRestClient(account_sid, auth_token)
 
 @app.route("/", methods=['GET', 'POST'])
-def mainFunction():
+def mainFunction():	
 	return render_template('main.html')
 
 # @app.route("/", methods=['GET', 'POST'])
@@ -30,47 +30,22 @@ def mainFunction():
 # 	return render_template ('main.html', smsMessage = smsMessage)
 
 @app.route("/textRefresher", methods=['GET', 'POST'])
+
 def textRefresher():
 	message = client.messages.list(
 		to = "+17472334999"
 		)
 	return message[0].body
 
-# @app.route("/", methods=['GET', 'POST'])
-# def storesMessages():
-# 	# message = request.values.get('Body', None)
-# 	message = client.messages.list(
-# 		to = "+17472334999"
-# 		)
-# 	return message[0].body
 
 @app.route("/response", methods=['GET', 'POST'])
-
-# def checkForBadWords():
-# 	# response = "THANKS FOR UR QUESTION. FROM, THE INTERNET"
-# 	# message = client.messages.list(
-# 	# 	to = "+17472334999"
-# 	# 	)
-# 	# badword = "Fuck"
-# 	# text = message[0].body
-# 	# textWords = text.split()
-# 	# #if the text contains naughty words
-# 	# if badWord in textWords:
-# 	# 	response = "OH NO A$$FACE SAFESEARCH IS ON!"
-# 	# else:
-# 	# 	response = "THANKS FOR UR QUESTION. FROM, THE INTERNET"
-# 	# fromTheInternet()
-# 	# return 'words checked'
-
 def fromTheInternet():
 	"""Respond to incoming calls with a simple text message."""
 	# with open("./badwords.txt", 'r') as badwords:
 	badwords = ['fuck', 'shit', 'cunt', 'cocksucker', 'asshole']
 	text = request.values.get('Body')
 	textwords = text.split()
-	for word in badwords:
-		print word
-		if word in textwords:			
+		if badwords in textwords:			
 			msg = " UH OH, A$$FACE SAFESEARCH IS ON!"
 		else:	 
 			msg = " THANKS FOR UR QUESTION. <3, THE INTERNET"
