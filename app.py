@@ -69,10 +69,10 @@ def fromTheInternet():
 	text = request.values.get('Body')
 	textwords = text.split()
 	for word in badwords:
-		if word in textwords:			
-			msg = "OH NO, A$$FACE SAFESEARCH IS ON!"
+		if badwords in textwords:			
+			msg = " UH OH, A$$FACE SAFESEARCH IS ON!"
 		else:	 
-			msg = "THANKS FOR UR QUESTION. FROM, THE INTERNET"
+			msg = " THANKS FOR UR QUESTION. <3, THE INTERNET"
 		resp = twilio.twiml.Response()			
 		resp.message(msg)
 		return str(resp)
