@@ -66,7 +66,7 @@ def fromTheInternet():
 	"""Respond to incoming calls with a simple text message."""
 	badwords = []
 	text_file = open("badwords.txt", "r")
-	words = text_file.split()
+	words = text_file.readlines()
 	words.append(badwords)
 	text = request.values.get('Body')
 	textWords = text.split()
