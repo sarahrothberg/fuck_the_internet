@@ -41,8 +41,8 @@ def textRefresher():
 @app.route("/response", methods=['GET', 'POST'])
 def fromTheInternet():
 	"""Respond to incoming calls with a simple text message."""
-	with open("./badwords.txt", 'r') as badwords:
-	# badwords = ['fuck', 'shit', 'cunt', 'cocksucker', 'asshole'];
+	# with open("./badwords.txt", 'r') as badwords:
+	badwords = ['fuck', 'shit', 'cunt', 'cocksucker', 'asshole'];
 	text = request.values.get('Body')
 	textwords = text.split()
 	for word in badwords:
