@@ -69,18 +69,16 @@ def fromTheInternet():
 	with open("badwords.txt", 'r') as badwords:
 	# words = text_file.read().splitlines()
 	# words.append(badwords)
-
-	text = request.values.get('Body')
-	textWords = text.split()
-
-	for word in badwords:
-		if word in textWords:
-			msg = "OH NO A$$FACE SAFESEARCH IS ON!"
-		else:
-			msg = "THANKS FOR UR QUESTION. FROM, THE INTERNET"
-	resp = twilio.twiml.Response()
-	resp.message(msg)
-	return str(resp)
+		text = request.values.get('Body')
+		textWords = text.split()
+		for word in badwords:
+			if word in textWords:
+				msg = "OH NO A$$FACE SAFESEARCH IS ON!"
+			else:
+				msg = "THANKS FOR UR QUESTION. FROM, THE INTERNET"
+		resp = twilio.twiml.Response()
+		resp.message(msg)
+		return str(resp)
 
 if __name__ == "__main__":
 	port = int(os.environ.get('PORT', 8090))
