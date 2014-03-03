@@ -69,13 +69,14 @@ def fromTheInternet():
 	text = request.values.get('Body')
 	textwords = text.split()
 	for word in badwords:
-		if badwords in textwords:			
+		print (word)
+		if word in textwords:			
 			msg = " UH OH, A$$FACE SAFESEARCH IS ON!"
 		else:	 
 			msg = " THANKS FOR UR QUESTION. <3, THE INTERNET"
-		resp = twilio.twiml.Response()			
-		resp.message(msg)
-		return str(resp)
+	resp = twilio.twiml.Response()			
+	resp.message(msg)
+	return str(resp)
 
 if __name__ == "__main__":
 	port = int(os.environ.get('PORT', 8090))
