@@ -71,7 +71,7 @@ def fromTheInternet():
 	for word in badwords:
 		if word in textWords:			
 			msg = "OH NO, A$$FACE SAFESEARCH IS ON!"
-		else:
+		else:	
 			msg = "THANKS FOR UR QUESTION. FROM, THE INTERNET"
 		resp = twilio.twiml.Response()			
 		resp.message(msg)
