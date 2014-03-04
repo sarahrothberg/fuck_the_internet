@@ -73,11 +73,12 @@ function processing(){
       setTimeout(questionAppear, 5000);
   }
   else {
-      setTimeout(answerAppear, 5000)
+      setTimeout(answerAppear, 10000)
   }
 }
 
 function questionAppear(){
+  $('#text').addClass('text'); 
   $('#isProcessing').removeClass('processing'); 
 
 }
