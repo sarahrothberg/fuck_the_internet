@@ -6,6 +6,9 @@ from twilio.util import TwilioCapability
 
 import twilio.twiml
 import os
+import serial
+
+ser = serial.Serial('/dev/tty.usbmodem411', 9600)
 
 
 app = Flask(__name__)
@@ -52,9 +55,17 @@ def fromTheInternet():
 			msg = " UH OH, A$$FACE SAFESEARCH IS ON!"
 		else:	 
 			msg = " THANKS FOR UR QUESTION. <3, THE INTERNET"
+			sendSerial();
 	resp = twilio.twiml.Response()			
 	resp.message(msg)
 	return str(resp)
+
+def sendSerial():
+    ser.write('1')
+    return 'sending'
+
+# @app.route("/sendSerial", methods=['GET', 'POST'])
+
 
 if __name__ == "__main__":
 	port = int(os.environ.get('PORT', 8090))
