@@ -9,75 +9,82 @@
 
 var currentText;
 var lastText;
+var isQuestion; 
 
 $(function(){
   mainFunction();
+  isQuestion = window.location.hash==="#Qs"; 
+
 });
 //when jquery say that the DOM is ready, it calls this function, 
 
 function mainFunction(){
   worker();
   // valerie();
-  setTimeout(mainFunction, 1000);
+  setTimeout(mainFunction, 10000);
 }
 //the above is like a drawloop
 
 //mainFunction();
 //this is not processing. you can call a function whenever, as long as its been defined
 
+function hasChanged(){
+  if (!isQuestion){
+    console.log("this si the anwer machine")
+  } else {
+    console.log("this si the question machine")
+  }
+
+
+  console.log("changed!")
+  processing();
+}
+
 function worker(){
   $.ajax({
       //below means the relative location and then the specified route
-      url: window.location.href+'textRefresher', 
+      url: location.protocol+'//'+location.host+location.pathname+'textRefresher', 
       success: function(textMessage) {
         $('#text').html(textMessage);
         currentText = textMessage;
         if (currentText != lastText){
-          console.log("changed!")
-          $('#isProcessing').addClass('processing');
-          setTimeout(function(){
-          $('#isProcessing').removeClass('processing');
-          }, 5000);
-          //number is milis gif dispalys for
-          // //here is where we send pyserial and do processing gifs"
-
+          hasChanged();
+          lastText = currentText;
         }
-        //the above is how you fill a div in jquery
-        //select the element with the id text and set its html to the return of the textrefresher function in python
       },
-      //called when ajax call is done
-      complete : function() {
-        lastText = currentText;
-      }
     });
 }
-  
 
           // MACK'S STUFF GIPHY QUERY
 function macksThing(){
-  $.ajax({
-      type:"POST",
-      // url: window.location.href+'gifscreen',
-      data: lastText,
+  var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=" + lastText +"&api_key=dc6zaTOxFJmzC&limit=5");
+  xhr.done(function(data) {
+    var embedURL = data['data'][0].images.original.url;
+    var img = new Image(); 
+    $('#gifAnswer').html(img); 
+    img.src = embedURL; 
+  });
+}
 
+function processing(){
+  $('#isProcessing').addClass('processing');
 
-      success: function(gif){
-        if (lastText != currentText){
+  if (isQuestion){
+      setTimeout(questionAppear, 5000);
+  }
+  else {
+      setTimeout(answerAppear, 5000)
+  }
+}
 
-          var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=" + lastText +"&api_key=dc6zaTOxFJmzC&limit=5");
+function questionAppear(){
+  $('#isProcessing').removeClass('processing'); 
 
-          xhr.done(function(data) {
-            var embedURL = data['data'][0]['embed_url'];
-            // var embedURL = data.data.0.embed_url;
-            // var jayson = JSON.parse(data);
-            console.log("success got embedURL! ", embedURL);
-          });
+}
 
-          //add it to the DOM
-          $('#theGif').append(embedURL);
-        }
-      }
-    });
+function answerAppear(){
+  $('#isProcessing').removeClass('processing');
+  macksThing();
 }
 
 // function valerie(){
