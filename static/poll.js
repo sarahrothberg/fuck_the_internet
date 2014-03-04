@@ -30,6 +30,30 @@ $(function worker() {
         //the above is how you fill a div in jquery
         //select the element with the id text and set its html to the return of the textrefresher function in python
       },
+
+        // MACK'S STUFF GIPHY QUERY
+
+      // $.ajax({
+      //     type:"POST",
+      //     // url: window.location.href+'gifscreen',
+      //     data: lastText,
+      //     success: function(gif){
+      //       if (lastText = currentText){
+      //       var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=" + lastText +"&api_key=dc6zaTOxFJmzC&limit=5");
+      //       xhr.done(function(data) {
+      //         var embedURL = data['data'][0]['embed_url'];
+      //         // var embedURL = data.data.0.embed_url;
+      //         // var jayson = JSON.parse(data);
+      //         console.log("success got embedURL! ", embedURL);
+      //       });
+      //       $('#theGif').append(embedURL);
+      //       }
+      //     }
+      //   });
+      // },
+
+
+
       complete: function() {
         setTimeout(worker, 1000);
         lastText = currentText;

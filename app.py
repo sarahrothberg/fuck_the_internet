@@ -21,13 +21,9 @@ client = TwilioRestClient(account_sid, auth_token)
 def mainFunction():	
 	return render_template('main.html')
 
-#below is the working one!!!
-# @app.route("/textRefresher", methods=['GET', 'POST'])
-# def textRefresher():
-# 	message = client.messages.list(
-# 		to = "+17472334999"
-# 		)
-# 	return message[0].body
+@app.route("/gifDisplay", methods=['GET', 'POST'])
+def displayGif():
+	return render_template('gif.html')
 
 @app.route("/textRefresher", methods=['GET', 'POST'])
 def textRefresher():
@@ -39,7 +35,7 @@ def textRefresher():
 	textwords = text.split()
 	for word in badwords:
 		if word in textwords:
-			post = "uh oh! someone said something shitty!"
+			post = "UH OH! SOMEONE SAID @#!$"
 		else:
 			post = message[0].body
 	return post
