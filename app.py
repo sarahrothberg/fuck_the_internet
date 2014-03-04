@@ -28,7 +28,7 @@ def textRefresher():
 		to = "+17472334999"
 		)
 	text_file = open("badwords.txt", "r")
-	badwords = text_file.read().split()
+	badwords = text_file.read().split("\n")
 	# badwords = ['fuck', 'shit', 'cunt', 'cocksucker', 'asshole'];
 	text = message[0].body
 	textwords = text.split()
@@ -43,7 +43,7 @@ def textRefresher():
 def fromTheInternet():
 	"""Respond to incoming calls with a simple text message."""
 	text_file = open("badwords.txt", "r")
-	badwords = text_file.read().split()
+	badwords = text_file.read().split("\n")
 	# badwords = ['fuck', 'shit', 'cunt', 'cocksucker', 'asshole'];
 	text = request.values.get('Body')
 	textwords = text.split()
