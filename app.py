@@ -7,6 +7,12 @@ from twilio.util import TwilioCapability
 import twilio.twiml
 import os
 
+
+import serial
+import time
+ser = serial.Serial('/dev/tty.usbmodem1411', 9600)
+
+
 app = Flask(__name__)
 
 
@@ -17,6 +23,18 @@ client = TwilioRestClient(account_sid, auth_token)
 @app.route("/", methods=['GET', 'POST'])
 def mainFunction():	
 	return render_template('main.html')
+
+def write_out():
+    body = request.form['Body'] # get SMS body
+    print body
+    # for char in body:
+    #     signals = alpha[char.lower()]
+    #     for signal in signals:
+    #         if signal == '1':
+    #             on(0.2) # Send dot
+    #         elif signal == '2':
+    #             on(0.4) # Send dash
+    #         time.sleep(0.2)
 
 @app.route("/gifDisplay", methods=['GET', 'POST'])
 def displayGif():
@@ -55,6 +73,14 @@ def fromTheInternet():
 	resp = twilio.twiml.Response()			
 	resp.message(msg)
 	return str(resp)
+
+def on(duration):
+	ser.write('1')
+	ser.read()
+	time.sleep(duration)
+	ser.write('0')
+	ser.read()
+
 
 
 if __name__ == "__main__":
