@@ -6,15 +6,9 @@ from twilio.util import TwilioCapability
 
 import twilio.twiml
 import os
-# import serial
-
-# ser = serial.Serial('/dev/tty.usbmodem411', 9600)
-
 
 app = Flask(__name__)
 
-
-# Your Account Sid and Auth Token from twilio.com/user/account
 
 account_sid = "AC2f3087700e52df09a6bf868cd422d398"
 auth_token  = "fe3eecfae2e9747c93c67dce12458853"
@@ -58,16 +52,9 @@ def fromTheInternet():
 			msg = " UH OH, A$$FACE SAFESEARCH IS ON!"
 		else:	 
 			msg = " THANKS FOR UR QUESTION. <3, THE INTERNET"
-			sendSerial();
 	resp = twilio.twiml.Response()			
 	resp.message(msg)
 	return str(resp)
-
-# def sendSerial():
-#     ser.write('1')
-#     return 'sending'
-
-# @app.route("/sendSerial", methods=['GET', 'POST'])
 
 
 if __name__ == "__main__":
