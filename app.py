@@ -6,9 +6,9 @@ from twilio.util import TwilioCapability
 
 import twilio.twiml
 import os
-import serial
+# import serial
 
-ser = serial.Serial('/dev/tty.usbmodem411', 9600)
+# ser = serial.Serial('/dev/tty.usbmodem411', 9600)
 
 
 app = Flask(__name__)
