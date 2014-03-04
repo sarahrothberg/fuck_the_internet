@@ -39,7 +39,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/sarahrothberg/Documents/School/ITP_SP2014/POP UP WINDOWS/pipes_code/venv"
+VIRTUAL_ENV="/Users/sarahrothberg/Documents/School/ITP_SP2014/POP_UP_WINDOWS/pipes_code/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

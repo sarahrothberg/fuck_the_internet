@@ -1,4 +1,4 @@
-#!"/Users/sarahrothberg/Documents/School/ITP_SP2014/POP UP WINDOWS/pipes_code/venv/bin/python"
+#!/Users/sarahrothberg/Documents/School/ITP_SP2014/POP_UP_WINDOWS/pipes_code/venv/bin/python
 # EASY-INSTALL-ENTRY-SCRIPT: 'pip==1.4.1','console_scripts','pip'
 __requires__ = 'pip==1.4.1'
 import sys
