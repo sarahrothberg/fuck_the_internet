@@ -33,7 +33,9 @@ def textRefresher():
 	message = client.messages.list(
 		to = "+17472334999"
 		)
-	badwords = ['fuck', 'shit', 'cunt', 'cocksucker', 'asshole'];
+	text_file = open("badwords.txt", "r")
+	badwords = text_file.read().split()
+	# badwords = ['fuck', 'shit', 'cunt', 'cocksucker', 'asshole'];
 	text = message[0].body
 	textwords = text.split()
 	for word in badwords:
@@ -46,8 +48,9 @@ def textRefresher():
 @app.route("/response", methods=['GET', 'POST'])
 def fromTheInternet():
 	"""Respond to incoming calls with a simple text message."""
-	# with open("./badwords.txt", 'r') as badwords:
-	badwords = ['fuck', 'shit', 'cunt', 'cocksucker', 'asshole'];
+	text_file = open("badwords.txt", "r")
+	badwords = text_file.read().split()
+	# badwords = ['fuck', 'shit', 'cunt', 'cocksucker', 'asshole'];
 	text = request.values.get('Body')
 	textwords = text.split()
 	for word in badwords:
@@ -60,9 +63,9 @@ def fromTheInternet():
 	resp.message(msg)
 	return str(resp)
 
-def sendSerial():
-    ser.write('1')
-    return 'sending'
+# def sendSerial():
+#     ser.write('1')
+#     return 'sending'
 
 # @app.route("/sendSerial", methods=['GET', 'POST'])
 
