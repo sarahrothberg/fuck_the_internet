@@ -13,7 +13,8 @@ var isQuestion;
 
 $(function(){
   mainFunction();
-  isQuestion = window.location.hash==="#Qs"; 
+   isQuestion = window.location.hash==="#Qs";
+
 
 });
 //when jquery say that the DOM is ready, it calls this function, 
@@ -63,6 +64,7 @@ function macksThing(){
     var img = new Image(); 
     $('#gifAnswer').html(img); 
     img.src = embedURL; 
+    console.log(embedURL);
   });
 }
 
