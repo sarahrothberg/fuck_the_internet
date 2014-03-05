@@ -44,7 +44,7 @@ function hasChanged(){
 function worker(){
   $.ajax({
       //below means the relative location and then the specified route
-      url: location.protocol+'//'+location.host+location.pathname+'textRefresher', 
+      url: location.protocol+'//'+location.host+location.pathname+'textRefresher',
       success: function(textMessage) {
         $('#text').html(textMessage);
         currentText = textMessage;
@@ -61,20 +61,20 @@ function worker(){
 
 function macksThing(){
   
-  // GET THE LONGEST WORD
+  // GET THE LOOOONGEST WORD
 
   lastTextArray = lastText.split(' ');
   var longest = lastTextArray.sort(function (a, b) { return b.length - a.length; })[0];
   console.log("LOOOOOONGEST WORD ==== " + longest);
 
-  // GET THE GIF
+  // GET THE .GIF
 
   var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=" + longest +"&api_key=dc6zaTOxFJmzC&limit=5");
   xhr.done(function(data) {
     var embedURL = data['data'][0].images.original.url;
-    var img = new Image(); 
-    $('#gifAnswer').html(img); 
-    img.src = embedURL; 
+    var img = new Image();
+    $('#gifAnswer').html(img);
+    img.src = embedURL;
     console.log(embedURL);
   });
 }
@@ -86,13 +86,13 @@ function processing(){
       setTimeout(questionAppear, 1000);
   }
   else {
-      setTimeout(answerAppear, 10000)
+      setTimeout(answerAppear, 3000);
   }
 }
 
 function questionAppear(){
-  $('#text').addClass('text'); 
-  $('#isProcessing').removeClass('processing'); 
+  $('#text').addClass('text');
+  $('#isProcessing').removeClass('processing');
 
 }
 
