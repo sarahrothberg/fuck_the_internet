@@ -17,6 +17,8 @@ body{
 #isProcessing.processing{
   background: url(./images/processing.gif) no-repeat center center fixed; 
   background-size: 100%;
+  width: 100%;
+  height:100%;
 }
 
 
@@ -51,6 +53,14 @@ body{
 
 #gifAnswer{
   position: absolute;
+  height: 100%;
   width: 100%;
-  height:100%;
 }
+
+#gifAnswer img{
+  margin-top: 0px;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+/*  z-index:-1;
+*/}

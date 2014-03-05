@@ -8,10 +8,10 @@ import twilio.twiml
 import os
 
 
-import serial
-import time
+# import serial
+# import time
 
-ser = serial.Serial('/dev/tty.usbmodem411', 9600)
+# ser = serial.Serial('/dev/tty.usbmodem411', 9600)
 
 textTime = "0"
 lastTextTime = "0"
@@ -75,8 +75,10 @@ def textRefresher():
 	message = client.messages.list(
 		to = "+17472334999"
 		)
-	# text_file = open("badwords.dat", "r")
-	# badwords = text_file.read().split()
+
+	# with open(badwords.dat) as f:
+    	# badwords = f.readlines()
+# 
 	badwords = ['fuck', 'shit', 'cunt', 'cocksucker', 'asshole'];
 	text = message[0].body
 	textwords = text.split()
@@ -85,15 +87,17 @@ def textRefresher():
 			post = "UH OH! SOMEONE SAID @#!$"
 		else:
 			post = message[0].body
-			ser.write("1")
-			# smsReceived = True
+			# ser.write("1")
+			# # smsReceived = True
 	return post
 
 @app.route("/response", methods=['GET', 'POST'])
 def fromTheInternet():
 	"""Respond to incoming calls with a simple text message."""
-	# text_file = open("badwords.dat", "r")
-	# badwords = text_file.read().split()
+	
+	# with open(badwords.dat) as f:
+ #    	badwords = f.readlines()
+
 	badwords = ['fuck', 'shit', 'cunt', 'cocksucker', 'asshole'];
 	text = request.values.get('Body')
 	textwords = text.split()
@@ -108,36 +112,26 @@ def fromTheInternet():
 
 if __name__ == "__main__":
 
-	while True:
-		message = client.messages.list(
-			to = "+17472334999"
-			)
+	# while True:
+	# 	message = client.messages.list(
+	# 		to = "+17472334999"
+	# 		)
 
-		textTime = message[0].date_created
+	# 	textTime = message[0].date_created
 
-		print "last text time= " + lastTextTime
-		print "current text time= " + textTime
+	# 	print "last text time= " + lastTextTime
+	# 	print "current text time= " + textTime
 		
-		if textTime != lastTextTime:
-			ser.write('1')
-			lastTextTime = textTime
-		else: 
-			ser.write('0')
+	# 	if textTime != lastTextTime:
+	# 		ser.write('1')
+	# 		lastTextTime = textTime
+	# 	else: 
+	# 		ser.write('0')
 			
 
 	port = int(os.environ.get('PORT', 8000))
 	app.run(host = '0.0.0.0', port=port)
 	app.run(debug=True)
-
-	
-
-
-	# if smsReceived == True and count < 100:
-	# 	count +=1
-	# 	print "Im counting like a mofo " + str(count)
-	# else:
-	# 	ser.write("0")
-	# 	smsReceived  = false
 
 
 	

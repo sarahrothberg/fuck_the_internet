@@ -51,14 +51,25 @@ function worker(){
         if (currentText != lastText){
           hasChanged();
           lastText = currentText;
+
         }
       },
     });
 }
 
-          // MACK'S STUFF GIPHY QUERY
+  // MACK'S STUFF GIPHY QUERY
+
 function macksThing(){
-  var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=" + lastText +"&api_key=dc6zaTOxFJmzC&limit=5");
+  
+  // GET THE LONGEST WORD
+
+  lastTextArray = lastText.split(' ');
+  var longest = lastTextArray.sort(function (a, b) { return b.length - a.length; })[0];
+  console.log("LOOOOOONGEST WORD ==== " + longest);
+
+  // GET THE GIF
+
+  var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=" + longest +"&api_key=dc6zaTOxFJmzC&limit=5");
   xhr.done(function(data) {
     var embedURL = data['data'][0].images.original.url;
     var img = new Image(); 
@@ -72,7 +83,7 @@ function processing(){
   $('#isProcessing').addClass('processing');
 
   if (isQuestion){
-      setTimeout(questionAppear, 5000);
+      setTimeout(questionAppear, 1000);
   }
   else {
       setTimeout(answerAppear, 10000)
