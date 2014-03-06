@@ -44,14 +44,22 @@ body{
 #text.text{
   position: absolute;
   top: 20%;
-  left:  10%;
-  font-family: '256Bytes';
-  font-size: 40px;
   text-align: center;
+  margin-left: 10%;
+  margin-right: auto;
+  font-family: '256Bytes';
+  font-size: 65px;
   color: black;
+  width: 80%;
   text-transform:uppercase;
 /*  color: -webkit-linear-gradient(top, #100FFE 0%, #FF00FF 10%, #00FBFF 100%);
-*/  width: 100%; }
+
+*/  
+ }
+
+#container p {
+
+}
 
 #gifAnswer{
   position: absolute;
