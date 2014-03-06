@@ -44,9 +44,9 @@ body{
 #text.text{
   position: absolute;
   top: 20%;
-  left: 0px;
+  left:  10%;
   font-family: '256Bytes';
-  font-size: 200px;
+  font-size: 40px;
   text-align: center;
   color: black;
   text-transform:uppercase;
