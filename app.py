@@ -64,6 +64,7 @@ def textRefresher():
 	for word in badwords:
 		if word in textwords:
 			post = "UH OH! SOMEONE SAID @#!$"
+			break
 		else:
 			post = message[0].body
 	return post
