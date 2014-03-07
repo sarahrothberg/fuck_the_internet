@@ -57,6 +57,20 @@ body{
 */  
  }
 
+ #email{
+  position: absolute;
+  top: 5%;
+  text-align: center;
+  margin-left: 5%;
+  margin-right: auto;
+  font-family: '256Bytes';
+  font-size: 30px;
+  color: black;
+/*  color: -webkit-linear-gradient(top, #100FFE 0%, #FF00FF 10%, #00FBFF 100%);
+
+*/  
+ }
+
 #container p {
 
 }
