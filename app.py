@@ -8,10 +8,10 @@ import twilio.twiml
 import os
 
 
-# import serial
-# import time
+import serial
+import time
 
-# ser = serial.Serial('/dev/tty.usbmodem411', 9600)
+ser = serial.Serial('/dev/tty.usbmodem411', 9600)
 
 textTime = "0"
 lastTextTime = "0"
@@ -87,21 +87,21 @@ def fromTheInternet():
 	
 if __name__ == "__main__":
 
-	# while True:
-	# 	message = client.messages.list(
-	# 		to = "+17472334999"
-	# 		)
+	while True:
+		message = client.messages.list(
+			to = "+17472334999"
+			)
 
-	# 	textTime = message[0].date_created
+		textTime = message[0].date_created
 
-	# 	print "last text time= " + lastTextTime
-	# 	print "current text time= " + textTime
+		print "last text time= " + lastTextTime
+		print "current text time= " + textTime
 		
-	# 	if textTime != lastTextTime:
-	# 		ser.write('1')
-	# 		lastTextTime = textTime
-	# 	else: 
-	# 		ser.write('0')
+		if textTime != lastTextTime:
+			ser.write('1')
+			lastTextTime = textTime
+		else: 
+			ser.write('0')
 			
 
 	port = int(os.environ.get('PORT', 8090))
